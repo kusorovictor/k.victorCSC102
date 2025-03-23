@@ -1,0 +1,46 @@
+START
+  DISPLAY "Enter total cost of items"
+  INPUT TotalCost
+
+  DISPLAY "Enter payment method (Cash/Card)"
+  INPUT PaymentMethod
+
+  IF PaymentMethod is "Cash" THEN
+    DISPLAY "Enter cash given by customer"
+    INPUT CashGiven
+
+    IF CashGiven >= TotalCost THEN
+      Change = CashGiven - TotalCost
+      DISPLAY "Change to return:", Change
+    ELSE
+      DISPLAY "Not enough cash"
+      EXIT
+    ENDIF
+
+  ELSE IF PaymentMethod is "Card" THEN
+    DISPLAY "Processing card payment..."
+    
+    IF ProcessSuccessful THEN
+      REPEAT
+        DISPLAY "Enter your card PIN"
+        INPUT CardPin
+
+        IF CardPin is "Correct" THEN
+          DISPLAY "Payment successful"
+          EXIT
+        ELSE
+          DISPLAY "Incorrect PIN. Try again."
+        ENDIF
+      UNTIL CardPin is "Correct"
+    ELSE
+      DISPLAY "Card payment failed. Try another payment method."
+      EXIT
+    ENDIF
+
+  ELSE
+    DISPLAY "Payment method not supported"
+    EXIT
+  ENDIF
+
+  DISPLAY "Transaction complete"
+END

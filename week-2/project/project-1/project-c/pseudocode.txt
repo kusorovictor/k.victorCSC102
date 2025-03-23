@@ -1,0 +1,20 @@
+START
+  DISPLAY "Enter first person's name:"
+  INPUT Name1
+  DISPLAY "Enter first person's age:"
+  INPUT Age1
+
+  DISPLAY "Enter second person's name:"
+  INPUT Name2
+  DISPLAY "Enter second person's age:"
+  INPUT Age2
+
+  // Swapping ages
+  Temp = Age1
+  Age1 = Age2
+  Age2 = Temp
+
+  DISPLAY "After swapping:"
+  DISPLAY Name1, "is now", Age1, "years old"
+  DISPLAY Name2, "is now", Age2, "years old"
+END
