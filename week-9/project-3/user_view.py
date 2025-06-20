@@ -35,15 +35,15 @@ class UserView:
     weight = float(self.weight_entry.get())
       
       # Create a service instance and calculate cost
-    delivery_service = service.service(location, weight)
+    my_service = service.delivery_service(location, weight)
     if location == "pau":
-      delivery_service.pau_calculate_cost()
+      my_service.pau_calculate_cost()
     elif location == "epe":
-      delivery_service.epe_calculate_cost()
+      my_service.epe_calculate_cost()
     else:
       messagebox.showerror("Error", "We do not deliver to this location yet.")
       return
       
     # Display the cost to the user
-    messagebox.showinfo("Cost", f"The cost for delivery to {location} is N{delivery_service.cost}.")
+    messagebox.showinfo("Cost", f"The cost for delivery to {location} is N{my_service.cost}.")
   

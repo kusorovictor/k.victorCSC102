@@ -5,7 +5,7 @@ class Employee:
     def __init__ (self, name):
       self.name = name
       self.attendance = False
-      self.task = "" #Employee's task is empty by default
+      self.task = tasks.Task.Default #Employee's task is empty by default
     
     #Check if an employee is in the list of employees  
     def check_employee(self, username, list):
@@ -23,10 +23,11 @@ class Employee:
         else:
             messagebox.showinfo("Status","Attendance already taken for this employee.")
             return False
-          
+    
+    
     def assign_task(self, employee):
         #Check if the employee already has a task assigned, if not, assign a task to them
-        if employee.task == "":
+        if employee.task.value == "":
             employee.task = random.choice(list(tasks.Task))
             
     def refuse_access(self, messagebox):

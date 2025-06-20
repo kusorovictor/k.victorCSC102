@@ -1,4 +1,4 @@
-class service:
+class delivery_service:
   
   def __init__(self, location, weight):
     self.location = location
